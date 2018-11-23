@@ -7,11 +7,16 @@ public class AirportTest {
 
     private Airport airport;
     private Plane plane;
+    private Flight flight;
+    private Passenger passenger;
+
 
     @Before
     public void before() {
         airport = new Airport("Edinburgh", "EDI");
         plane = new Plane(AircraftType.MEDIUM, "Ryanair");
+        flight = new Flight(plane, "FR6266", "Barcelona");
+        passenger = new Passenger("Ron", "Weasley");
     }
 
     @Test
@@ -53,6 +58,13 @@ public class AirportTest {
         airport.addPlaneToHangar(plane);
         airport.createFlight(plane, "FR6266", "Barcelona");
         assertEquals(1, airport.flightCount());
+    }
+
+    @Test
+    public void canSellTicket() {
+        airport.sellTicket(flight, passenger);
+        assertEquals(1, plane.passengerCount());
+        assertEquals(1, passenger.flightCount());
     }
 
 }

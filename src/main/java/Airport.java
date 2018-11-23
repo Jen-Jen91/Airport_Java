@@ -36,17 +36,27 @@ public class Airport {
     }
 
     public Plane removePlaneFromHangar(Plane plane) {
-        int index = 0;
-        if (this.hangar.contains(plane)) {
-            index = this.hangar.indexOf(plane);
+//        int index = 0;
+//        if (this.hangar.contains(plane)) {
+//            index = this.hangar.indexOf(plane);
+//        }
+//        return this.hangar.remove(index);
+        if (this.hangar.remove(plane)){
+            return plane;
         }
-        return this.hangar.remove(index);
+        return this.hangar.remove(0);
     }
 
     public void createFlight(Plane plane, String code, String destination) {
         Plane planeFromHangar = removePlaneFromHangar(plane);
         Flight flight = new Flight(planeFromHangar, code, destination);
         this.flights.add(flight);
+    }
+
+    public void sellTicket(Flight flight, Passenger passenger) {
+        Plane plane = flight.getPlane();
+        plane.addPassenger(passenger);
+        passenger.addFlight(flight);
     }
 
 
