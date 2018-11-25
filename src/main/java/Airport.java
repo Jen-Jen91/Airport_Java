@@ -53,10 +53,15 @@ public class Airport {
         this.flights.add(flight);
     }
 
+
+
     public void sellTicket(Flight flight, Passenger passenger) {
         Plane plane = flight.getPlane();
-        plane.addPassenger(passenger);
-        passenger.addFlight(flight);
+
+        if (!plane.isFull()) {
+            plane.addPassenger(passenger);
+            passenger.addFlight(flight);
+        }
     }
 
 

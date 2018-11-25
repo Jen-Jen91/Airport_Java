@@ -28,4 +28,8 @@ public class Plane {
         this.passengers.add(passenger);
     }
 
+    public boolean isFull() {
+        return this.aircraft.getValue() == passengerCount();
+    }
+
 }

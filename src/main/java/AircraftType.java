@@ -1,9 +1,9 @@
 public enum AircraftType {
-    HUGE(500),
-    BIG(250),
-    MEDIUM(100),
-    SMALL(50),
-    TINY(20);
+    HUGE(300),
+    BIG(150),
+    MEDIUM(80),
+    SMALL(30),
+    TINY(5);
 
     private final int value;
 

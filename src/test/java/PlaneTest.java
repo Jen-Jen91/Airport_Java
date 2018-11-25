@@ -35,4 +35,15 @@ public class PlaneTest {
         assertEquals(1, plane.passengerCount());
     }
 
+    @Test
+    public void planeCanBeFull() {
+        plane = new Plane(AircraftType.TINY, "easyJet");
+        plane.addPassenger(passenger);
+        plane.addPassenger(passenger);
+        plane.addPassenger(passenger);
+        plane.addPassenger(passenger);
+        plane.addPassenger(passenger);
+        assertEquals(true, plane.isFull());
+    }
+
 }

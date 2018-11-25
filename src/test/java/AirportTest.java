@@ -14,7 +14,7 @@ public class AirportTest {
     @Before
     public void before() {
         airport = new Airport("Edinburgh", "EDI");
-        plane = new Plane(AircraftType.MEDIUM, "Ryanair");
+        plane = new Plane(AircraftType.TINY, "Ryanair");
         flight = new Flight(plane, "FR6266", "Barcelona");
         passenger = new Passenger("Ron", "Weasley");
     }
@@ -65,6 +65,18 @@ public class AirportTest {
         airport.sellTicket(flight, passenger);
         assertEquals(1, plane.passengerCount());
         assertEquals(1, passenger.flightCount());
+    }
+
+    @Test
+    public void cannotSellTicketIfPlaneFull() {
+        airport.sellTicket(flight, passenger);
+        airport.sellTicket(flight, passenger);
+        airport.sellTicket(flight, passenger);
+        airport.sellTicket(flight, passenger);
+        airport.sellTicket(flight, passenger);
+        airport.sellTicket(flight, passenger);
+        assertEquals(5, plane.passengerCount());
+        assertEquals(5, passenger.flightCount());
     }
 
 }
