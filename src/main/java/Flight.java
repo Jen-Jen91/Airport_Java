@@ -2,9 +2,9 @@ public class Flight {
 
     private Plane plane;
     private String flightNumber;
-    private String destination;
+    private DestinationType destination;
 
-    public Flight(Plane plane, String flightNumber, String destination) {
+    public Flight(Plane plane, String flightNumber, DestinationType destination) {
         this.plane = plane;
         this.flightNumber = flightNumber;
         this.destination = destination;
@@ -18,7 +18,11 @@ public class Flight {
         return this.flightNumber;
     }
 
-    public String getDestination() {
+    public DestinationType getDestination() {
         return this.destination;
+    }
+
+    public int getTicketsBooked() {
+        return this.plane.passengerCount();
     }
 }

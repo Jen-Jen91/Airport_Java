@@ -47,12 +47,12 @@ public class Airport {
         return this.hangar.remove(0);
     }
 
-    public void createFlight(Plane plane, String code, String destination) {
+
+    public void createFlight(Plane plane, String code, DestinationType destination) {
         Plane planeFromHangar = removePlaneFromHangar(plane);
         Flight flight = new Flight(planeFromHangar, code, destination);
         this.flights.add(flight);
     }
-
 
 
     public void sellTicket(Flight flight, Passenger passenger) {
@@ -61,6 +61,35 @@ public class Airport {
         if (!plane.isFull()) {
             plane.addPassenger(passenger);
             passenger.addFlight(flight);
+        }
+    }
+
+
+//    public ArrayList<Integer> passengersOnEachFlight() {
+//        ArrayList<Integer> bookings = new ArrayList<>();
+//        for (Flight flight : this.flights) {
+//            int tickets = flight.getTicketsBooked();
+//            bookings.add(tickets);
+//        }
+//        return bookings;
+//    }
+
+
+    public void assignPlaneToFlight(Plane plane, DestinationType destination) {
+        if (destination.getValue() == "Scotland") {
+            plane.setAircraft(AircraftType.TINY);
+        } else if (destination.getValue() == "UK") {
+            plane.setAircraft(AircraftType.SMALL);
+        } else if (destination.getValue() == "Western Europe") {
+            plane.setAircraft(AircraftType.MEDIUM);
+        } else if (destination.getValue() == "Eastern Europe") {
+            plane.setAircraft(AircraftType.BIG);
+        } else if (destination.getValue() == "Western Asia") {
+            plane.setAircraft(AircraftType.BIG);
+        } else if (destination.getValue() == "Eastern Asia") {
+            plane.setAircraft(AircraftType.HUGE);
+        } else if (destination.getValue() == "America") {
+            plane.setAircraft(AircraftType.HUGE);
         }
     }
 

@@ -32,4 +32,7 @@ public class Plane {
         return this.aircraft.getValue() == passengerCount();
     }
 
+    public void setAircraft(AircraftType newAircraft) {
+        this.aircraft = newAircraft;
+    }
 }

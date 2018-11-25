@@ -13,7 +13,7 @@ public class PassengerTest {
     public void before() {
         passenger = new Passenger("Harry", "Potter");
         plane = new Plane(AircraftType.SMALL, "easyJet");
-        flight = new Flight(plane, "U26925", "Amsterdam");
+        flight = new Flight(plane, "U26925", DestinationType.AMSTERDAM);
     }
 
     @Test

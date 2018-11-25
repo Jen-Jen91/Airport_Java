@@ -46,4 +46,10 @@ public class PlaneTest {
         assertEquals(true, plane.isFull());
     }
 
+    @Test
+    public void canSetAircraftType() {
+        plane.setAircraft(AircraftType.TINY);
+        assertEquals(AircraftType.TINY, plane.getAircraftType());
+    }
+
 }

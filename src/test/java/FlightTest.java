@@ -11,7 +11,7 @@ public class FlightTest {
     @Before
     public void before() {
         plane = new Plane(AircraftType.MEDIUM, "British Airways");
-        flight = new Flight(plane, "BA2931", "London Gatwick");
+        flight = new Flight(plane, "BA2931", DestinationType.LONDON);
     }
 
     @Test
@@ -26,7 +26,14 @@ public class FlightTest {
 
     @Test
     public void flightHasDestination() {
-        assertEquals("London Gatwick", flight.getDestination());
+        assertEquals(DestinationType.LONDON, flight.getDestination());
+    }
+
+    @Test
+    public void canGetPassengerCount() {
+        Passenger passenger = new Passenger("Luna", "Lovegood");
+        plane.addPassenger(passenger);
+        assertEquals(1, flight.getTicketsBooked());
     }
 
 }
