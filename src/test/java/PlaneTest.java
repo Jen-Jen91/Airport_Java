@@ -52,4 +52,15 @@ public class PlaneTest {
         assertEquals(AircraftType.TINY, plane.getAircraftType());
     }
 
+    @Test
+    public void canCheckIfBroken() {
+        assertEquals(false, plane.isBrokenDown());
+    }
+
+    @Test
+    public void canSetPlaneIsBroken() {
+        plane.setPlaneIsBroken();
+        assertEquals(true, plane.isBrokenDown());
+    }
+
 }

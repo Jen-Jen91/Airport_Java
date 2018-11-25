@@ -5,11 +5,13 @@ public class Plane {
     private AircraftType aircraft;
     private String airline;
     private ArrayList<Passenger> passengers;
+    private boolean isBroken;
 
     public Plane(AircraftType aircraft, String airline) {
         this.aircraft = aircraft;
         this.airline = airline;
         this.passengers = new ArrayList<>();
+        this.isBroken = false;
     }
 
     public AircraftType getAircraftType() {
@@ -34,5 +36,16 @@ public class Plane {
 
     public void setAircraft(AircraftType newAircraft) {
         this.aircraft = newAircraft;
+    }
+
+    public void setPlaneIsBroken() {
+        this.isBroken = true;
+    }
+
+    public boolean isBrokenDown() {
+        if (this.isBroken) {
+            return true;
+        }
+        return false;
     }
 }

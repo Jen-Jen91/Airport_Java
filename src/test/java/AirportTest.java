@@ -102,4 +102,13 @@ public class AirportTest {
         assertEquals(AircraftType.HUGE, plane.getAircraftType());
     }
 
+    @Test
+    public void canAssignNewPlaneIfBroken() {
+        airport.assignPlaneToFlight(plane, DestinationType.SHETLAND);
+        plane.setPlaneIsBroken();
+        plane.isBrokenDown();
+        airport.assignNewPlaneIfBroken(plane, DestinationType.SHETLAND);
+        assertEquals(AircraftType.SMALL, plane.getAircraftType());
+    }
+
 }

@@ -49,6 +49,8 @@ public class Airport {
 
 
     public void createFlight(Plane plane, String code, DestinationType destination) {
+        assignPlaneToFlight(plane, destination);
+        assignNewPlaneIfBroken(plane, destination);
         Plane planeFromHangar = removePlaneFromHangar(plane);
         Flight flight = new Flight(planeFromHangar, code, destination);
         this.flights.add(flight);
@@ -91,6 +93,29 @@ public class Airport {
         } else if (destination.getValue() == "America") {
             plane.setAircraft(AircraftType.HUGE);
         }
+    }
+
+    public void assignNewPlaneIfBroken(Plane plane, DestinationType destination) {
+        if (plane.isBrokenDown()) {
+            if (destination.getValue() == "Scotland") {
+                plane.setAircraft(AircraftType.SMALL);
+            } else if (destination.getValue() == "UK") {
+                plane.setAircraft(AircraftType.MEDIUM);
+            } else if (destination.getValue() == "Western Europe") {
+                plane.setAircraft(AircraftType.BIG);
+            } else if (destination.getValue() == "Eastern Europe") {
+                plane.setAircraft(AircraftType.HUGE);
+            } else if (destination.getValue() == "Western Asia") {
+                plane.setAircraft(AircraftType.HUGE);
+            } else if (destination.getValue() == "Eastern Asia") {
+                plane.setAircraft(AircraftType.BIG);
+            } else if (destination.getValue() == "America") {
+                plane.setAircraft(AircraftType.BIG);
+            }
+        }
+
+
+
     }
 
 
