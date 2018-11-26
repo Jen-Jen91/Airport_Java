@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Airport {
 
@@ -74,6 +75,17 @@ public class Airport {
 //            bookings.add(tickets);
 //        }
 //        return bookings;
+//    }
+
+
+//    public HashMap<String, Integer> passengersOnEachFlight() {
+//        HashMap<String, Integer> passengers = new HashMap<>();
+//
+//        for (Flight flight : this.flights) {
+//            int tickets = flight.getTicketsBooked();
+//            passengers.put(flight.getFlightNumber(), tickets);
+//        }
+//        return passengers;
 //    }
 
 

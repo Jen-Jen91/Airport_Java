@@ -83,16 +83,7 @@ public class AirportTest {
 
 //    @Test
 //    public void countPassengersOnEachFlight() {
-//        Plane plane2 = new Plane(AircraftType.TINY, "easyJet");
-//        Flight flight2 = new Flight(plane2, "U26911", "Munich");
-//        Passenger passenger2 = new Passenger("Luna", "Lovegood");
 //
-//        airport.sellTicket(flight, passenger);
-//        airport.sellTicket(flight2, passenger2);
-//
-//        airport.passengersOnEachFlight();
-//
-////        assertEquals([1, 1], airport.passengersOnEachFlight());
 //    }
 
 
